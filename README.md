@@ -1,15 +1,13 @@
-![PLP-RxJs-MonstrosDeDuelo](img/yugioh01.png)
-> PLP-RxJs-MonstrosDeDuelo é um projeto desenvolvido com as tecnologias: linguagem de programação JavaScript, paradigma POO e o framework RxJS. Tem o intuito de simular o Jogo Monstros de Duelo que se trata do jogo de cards monsters colecionáveis mais popular do mundo, sendo esse jogo original do anime: Yu-Gi-Oh! Duel Monsters. O objetivo principal da aplicação é disponibilizar algumas das funcionalidades reais do jogo original, sendo elas: ver as cartas do baralho, jogar carta do tipo monstro, jogar carta do tipo mágica, ver os campos das cartas tanto do tipo monstro como do tipo mágica, sacrificar monstro do campo e por fim passar round. 
+![Operacoes-de-morfologia-PI](img/yugioh01.png)
+> Operacoes-de-morfologia-PI é um projeto desenvolvido com a tecnologia: Linguagem de programação Python 3.9.5 e as bibliotecas PIL e numpy. Tem o intuito de fazer aplicação do elemento estruturante para as operações de morfologia: dilatação, erosão, abertura e fechamento, em imagens escolhidas pelo usuário.
 
 ## Tecnologias usadas
-  * [POO]
-  * [JavaScript](https://www.javascript.com/)
-  * [RxJS](https://www.learnrxjs.io/)
+  * [Linguagem de programação Python 3.9.5](https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe)
+  * [Biblioteca PIL]
+  * [Biblioteca numpy]
 
 ## Instruções para testar o funcionamento do projeto
- * Instale o Node.JS
- * Durante a instalação, marque a opção de adicionar as referências do node ao Path da maquina
- * Abra o projeto no Visual Studio Code
- * Instale o RxJS no projeto com o comando: npm install rxjs
- * Instale o readline-sync com o comando: npm install readline-sync
- * Execute o projeto com o comando: node Principal
+ * Abra o projeto no Visual Studio Code (ou em outro editor de código de sua preferência)
+ * Instale a biblioteca PIL com o comando: pip install Pillow
+ * Instale a biblioteca numpy com o comando: pip install numpy
+ * Execute o projeto com o comando: python "projeto.py"

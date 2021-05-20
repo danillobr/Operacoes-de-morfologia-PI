@@ -1,5 +1,5 @@
 Instruções para testar o funcionamento do projeto:
-
-1 - Use o comando: pip install Pillow
-2 - Use o comando: pip install numpy
-3 - Execute o projeto com o comando: python "projeto.py"
+1 - Abra o projeto no Visual Studio Code (ou em outro editor de código de sua preferência)
+2 - Instale a biblioteca PIL com o comando: pip install Pillow
+3 - Instale a biblioteca numpy com o comando: pip install numpy
+4 - Execute o projeto com o comando: python "projeto.py"
