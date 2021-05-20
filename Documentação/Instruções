@@ -1,0 +1,5 @@
+Instruções para testar o funcionamento do projeto:
+
+1 - Use o comando: pip install Pillow
+2 - Use o comando: pip install numpy
+3 - Execute o projeto com o comando: python "projeto.py"
