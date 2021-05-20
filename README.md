@@ -11,3 +11,4 @@
  * Instale a biblioteca PIL com o comando: pip install Pillow
  * Instale a biblioteca numpy com o comando: pip install numpy
  * Execute o projeto com o comando: python "projeto.py"
+ sasa
