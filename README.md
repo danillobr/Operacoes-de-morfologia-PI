@@ -1,5 +1,5 @@
 ![PI_Projeto_Operacoes_Morfologicas](imagens/logo/Python-logo.png)
-> Operacoes-de-morfologia-PI é um projeto desenvolvido com a tecnologia: Linguagem de programação Python 3.9.5 e as bibliotecas PIL e numpy. Tem o intuito de implementar um código que permita a escolha de um elemento estruturante e receba uma imagem de entrada. A saída do algoritmo será o resultado da aplicação do elemento estruturante para as operações de morfologia: dilatação, erosão, abertura e fechamento.
+> PI_Projeto_Operacoes_Morfologicas é um projeto desenvolvido com a tecnologia: Linguagem de programação Python 3.9.5 e as bibliotecas PIL e numpy. Tem o intuito de implementar um código que permita a escolha de um elemento estruturante e receba uma imagem de entrada. A saída do algoritmo será o resultado da aplicação do elemento estruturante para as operações de morfologia: dilatação, erosão, abertura e fechamento.
 
 ## Tecnologias usadas
   * [Linguagem de programação Python 3.9.5](https://www.python.org/)
