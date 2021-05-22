@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 import os
 
-class PixelImage(object):
+class PixelImagem(object):
     def __init__(self, pixelX, pixelY):
         self.pixelX = pixelX
         self.pixelY = pixelY
@@ -14,7 +14,7 @@ def abrindoImagemEscolhida(nomeDaImagem):
 def convertendoImagemEmEscalaCinza(imagem):
     return imagem.convert('L')
 
-def binarizandoImagem(imagem):
+def aplicarLimiarizacaoNaImagem(imagem):
     imagem = convertendoImagemEmEscalaCinza(imagem)
     matrizDePixelsDaImagem = imagem.load()
 
@@ -26,7 +26,7 @@ def binarizandoImagem(imagem):
                 matrizDePixelsDaImagem[x, y] = 0
     return imagem
 
-def dilatandoImagem(imagem):
+def aplicarDilatacaoNaImagem(imagem):
     listaDePixelsParaPintar = []
     matrizDePixelsDaImagemBinarizada = imagem.load()
     larguraMatrizDePixels, alturaMatrizDePixels = imagem.size
@@ -34,7 +34,7 @@ def dilatandoImagem(imagem):
     for y, x in product(range(alturaMatrizDePixels-1), range(larguraMatrizDePixels-1)):
         if x > 0 and y > 0:
             if matrizDePixelsDaImagemBinarizada[x-1, y] == 255 or matrizDePixelsDaImagemBinarizada[x+1, y] == 255 or matrizDePixelsDaImagemBinarizada[x, y+1] == 255 or matrizDePixelsDaImagemBinarizada[x, y-1] == 255:
-                listaDePixelsParaPintar.append(PixelImage(x, y))
+                listaDePixelsParaPintar.append(PixelImagem(x, y))
     for pixel in listaDePixelsParaPintar:
         matrizDePixelsDaImagemBinarizada[pixel.pixelX, pixel.pixelY] = 255
     return imagem
@@ -47,7 +47,7 @@ def aplicarErosaoNaImagem(imagem):
     for y, x in product(range(alturaMatrizDePixels-1), range(larguraMatrizDePixels-1)):
         if x > 0 and y > 0:
             if matrizDePixelsDaImagemBinarizada[x-1, y] == 255 and matrizDePixelsDaImagemBinarizada[x+1, y] == 255 and matrizDePixelsDaImagemBinarizada[x, y+1] == 255 and matrizDePixelsDaImagemBinarizada[x, y-1] == 255:
-                listaDePixelsParaPintar.append(PixelImage(x, y))
+                listaDePixelsParaPintar.append(PixelImagem(x, y))
     for y, x in product(range(alturaMatrizDePixels), range(larguraMatrizDePixels)):
         matrizDePixelsDaImagemBinarizada[x, y] = 0
     for pixel in listaDePixelsParaPintar:
@@ -56,22 +56,23 @@ def aplicarErosaoNaImagem(imagem):
 
 def abertura(imagem):
     imagem = aplicarErosaoNaImagem(imagem)
-    imagem = dilatandoImagem(imagem)
+    imagem = aplicarDilatacaoNaImagem(imagem)
     return imagem
 
 def fechamento(imagem):
-    imagem = dilatandoImagem(imagem)
+    imagem = aplicarDilatacaoNaImagem(imagem)
     imagem = aplicarErosaoNaImagem(imagem)
     return imagem
 
 def menu():
     os.system('cls' if os.name == 'nt' else 'clear')
-    nomeDaImagem = "imagens/" + input("Digite o nome da imagem (com sua extensão) que deseja alterar:\n")
+    nomeDaImagem = "imagens/" + input("Digite o nome da imagem (com sua extensão):\n")
     opcao = input("Escolha uma opcao:\n"
-                  + "1 - Aplicar Dilatação na imagem\n"
-                  + "2 - Aplicar Erosão na imagem\n"
-                  + "3 - Fazer Abertura da imagem\n"
-                  + "4 - Fazer Fechamento da imagem\n")
+                  + "1 - Aplicar Limiarização na imagem\n"
+                  + "2 - Aplicar Dilatação na imagem\n"
+                  + "3 - Aplicar Erosão na imagem\n"
+                  + "4 - Fazer Abertura da imagem\n"
+                  + "5 - Fazer Fechamento da imagem\n")
     os.system('cls' if os.name == 'nt' else 'clear')
 
     try:
@@ -82,22 +83,27 @@ def menu():
 
     if opcao == '1':
         imagem.show()
-        imagem = binarizandoImagem(imagem)
+        imagem = convertendoImagemEmEscalaCinza(imagem)
         imagem.show()
-        imagem = dilatandoImagem(imagem)
+        imagem = aplicarLimiarizacaoNaImagem(imagem)
     elif opcao == '2':
         imagem.show()
-        imagem = binarizandoImagem(imagem)
+        imagem = aplicarLimiarizacaoNaImagem(imagem)
         imagem.show()
-        imagem = aplicarErosaoNaImagem(imagem)
+        imagem = aplicarDilatacaoNaImagem(imagem)
     elif opcao == '3':
         imagem.show()
-        imagem = binarizandoImagem(imagem)
+        imagem = aplicarLimiarizacaoNaImagem(imagem)
         imagem.show()
-        imagem = abertura(imagem)
+        imagem = aplicarErosaoNaImagem(imagem)
     elif opcao == '4':
         imagem.show()
-        imagem = binarizandoImagem(imagem)
+        imagem = aplicarLimiarizacaoNaImagem(imagem)
+        imagem.show()
+        imagem = abertura(imagem)
+    elif opcao == '5':
+        imagem.show()
+        imagem = aplicarLimiarizacaoNaImagem(imagem)
         imagem.show()
         imagem = fechamento(imagem)
     else:
